@@ -11,5 +11,8 @@ vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next Tab" })
 vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous Tab" })
 
 -- Toggle Buffer next and prev
-vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous Buffer" })
+-- vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next Buffer" })
+-- vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous Buffer" })
+
+vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
+vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
