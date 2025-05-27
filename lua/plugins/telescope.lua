@@ -1,5 +1,8 @@
 return {
   "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
   opts = function(_, opts)
     opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
       file_ignore_patterns = { "node_modules", ".git" },
