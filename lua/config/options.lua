@@ -38,3 +38,4 @@ vim.opt.signcolumn = "yes"
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.termguicolors = true
