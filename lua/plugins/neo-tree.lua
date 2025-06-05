@@ -7,6 +7,11 @@ return {
         hide_dotfiles = false,
         hide_gitignored = false,
       },
+      follow_current_file = {
+        enabled = true, -- This ensures the current file is focused
+        leave_dirs_open = false,
+      },
+      hijack_netrw_behavior = "open_current",
     },
     window = {
       position = "float",
@@ -19,6 +24,12 @@ return {
     },
   },
   keys = {
-    { "<leader>e", "<cmd>Neotree toggle float<cr>", desc = "Toggle Neo-tree (Floating)" },
+    {
+      "<leader>e",
+      function()
+        require("neo-tree.command").execute({ toggle = true, reveal = true })
+      end,
+      desc = "Toggle Neo-tree (Floating & Reveal Current File)",
+    },
   },
 }

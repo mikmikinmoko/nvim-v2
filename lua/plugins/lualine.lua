@@ -1,96 +1,62 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  opts = function()
-    local icons = require("lazyvim.config").icons
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function()
+      local M = {}
 
-    local colors = {
-      bg = "#1e1e2e",
-      fg = "#cdd6f4",
-      yellow = "#f9e2af",
-      cyan = "#89dceb",
-      darkblue = "#89b4fa",
-      green = "#a6e3a1",
-      orange = "#fab387",
-      violet = "#cba6f7",
-      magenta = "#f38ba8",
-      blue = "#89b4fa",
-      red = "#f38ba8",
-    }
-
-    local custom_theme = {
-      normal = {
-        a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-      insert = {
-        a = { fg = colors.bg, bg = colors.green, gui = "bold" },
-      },
-      visual = {
-        a = { fg = colors.bg, bg = colors.magenta, gui = "bold" },
-      },
-      replace = {
-        a = { fg = colors.bg, bg = colors.red, gui = "bold" },
-      },
-      command = {
-        a = { fg = colors.bg, bg = colors.yellow, gui = "bold" },
-      },
-      inactive = {
-        a = { fg = colors.fg, bg = colors.bg },
-        b = { fg = colors.fg, bg = colors.bg },
-        c = { fg = colors.fg, bg = colors.bg },
-      },
-    }
-
-    -- Buffer count component
-    local buffer_count = {
-      function()
-        local count = #vim.fn.getbufinfo({ buflisted = 1 })
-        return " " .. count
-      end,
-      color = { fg = colors.cyan, bg = colors.bg },
-    }
-
-    return {
-      options = {
-        theme = custom_theme,
-        section_separators = "",
-        component_separators = "",
-        globalstatus = true,
-        icons_enabled = true,
-        background = "NONE",
-      },
-      sections = {
-        lualine_a = {
-          { "mode", icon = "", upper = true },
-        },
-        lualine_b = {
-          { "branch", icon = "" },
-          { "diff", symbols = { added = " ", modified = " ", removed = " " } },
-          { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
-        },
-        lualine_c = {
-          { "filename", path = 1, symbols = { modified = "●", readonly = "🔒", unnamed = "Untitled" } },
-          {
-            function()
-              return "-> mikmikinmoko"
-            end,
-            color = { fg = colors.yellow, gui = "bold" },
+      M.theme = function()
+        local colors = {
+          darkgray = "#16161d",
+          gray = "#727169",
+          innerbg = "none", -- transparent
+          outerbg = "none", -- transparent
+          normal = "#7e9cd8",
+          insert = "#98bb6c",
+          visual = "#ffa066",
+          replace = "#e46876",
+          command = "#e6c384",
+        }
+        return {
+          inactive = {
+            a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
+            b = { fg = colors.gray, bg = colors.outerbg },
+            c = { fg = colors.gray, bg = colors.innerbg },
           },
+          visual = {
+            a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
+            b = { fg = colors.gray, bg = colors.outerbg },
+            c = { fg = colors.gray, bg = colors.innerbg },
+          },
+          replace = {
+            a = { fg = colors.darkgray, bg = colors.replace, gui = "bold" },
+            b = { fg = colors.gray, bg = colors.outerbg },
+            c = { fg = colors.gray, bg = colors.innerbg },
+          },
+          normal = {
+            a = { fg = colors.darkgray, bg = colors.normal, gui = "bold" },
+            b = { fg = colors.gray, bg = colors.outerbg },
+            c = { fg = colors.gray, bg = colors.innerbg },
+          },
+          insert = {
+            a = { fg = colors.darkgray, bg = colors.insert, gui = "bold" },
+            b = { fg = colors.gray, bg = colors.outerbg },
+            c = { fg = colors.gray, bg = colors.innerbg },
+          },
+          command = {
+            a = { fg = colors.darkgray, bg = colors.command, gui = "bold" },
+            b = { fg = colors.gray, bg = colors.outerbg },
+            c = { fg = colors.gray, bg = colors.innerbg },
+          },
+        }
+      end
+
+      return {
+        options = {
+          theme = M.theme(),
+          section_separators = "",
+          component_separators = "",
         },
-        lualine_x = {
-          buffer_count, -- 🧮 BUFFER COUNT DISPLAYED HERE
-          { "encoding", icon = "" },
-          { "fileformat", icons_enabled = true },
-          { "filetype", icon_only = true },
-        },
-        lualine_y = {
-          { "progress", icon = "📈" },
-        },
-        lualine_z = {
-          { "location", icon = "" },
-        },
-      },
-    }
-  end,
+      }
+    end,
+  },
 }
