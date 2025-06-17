@@ -44,6 +44,16 @@ return {
             },
           },
         },
+        tailwindcss = {
+          filetypes = {
+            "html",
+            "css",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+          },
+        },
       },
       setup = {
         tsserver = function()
@@ -51,6 +61,10 @@ return {
         end,
         vtsls = function(_, opts)
           require("lspconfig").vtsls.setup(opts)
+          return true
+        end,
+        tailwindcss = function(_, opts)
+          require("lspconfig").tailwindcss.setup(opts)
           return true
         end,
       },
