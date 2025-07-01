@@ -16,3 +16,11 @@ vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous Tab" })
 
 vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
 vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
+
+-- Move cursor while in insert mode
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move Down" })
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move Up" })
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move Right" })
+
+vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
