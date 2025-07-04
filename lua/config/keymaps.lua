@@ -24,3 +24,6 @@ vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move Up" })
 vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move Right" })
 
 vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
+
+-- Toggle Terminal
+vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Terminal horizontal" })
