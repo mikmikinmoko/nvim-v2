@@ -27,3 +27,24 @@ vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude
 
 -- Toggle Terminal
 vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Terminal horizontal" })
+
+-- search current buffer
+vim.keymap.set("n", "/", function()
+  require("telescope.builtin").current_buffer_fuzzy_find({
+    previewer = false,
+    layout_config = {
+      prompt_position = "top",
+    },
+    sorting_strategy = "ascending",
+  })
+end, { desc = "Telescope: Search in current buffer" })
+
+-- search accross the whole project
+vim.keymap.set("n", "<leader>/", function()
+  require("telescope.builtin").live_grep({
+    layout_config = {
+      prompt_position = "top",
+    },
+    sorting_strategy = "ascending",
+  })
+end, { desc = "Telescope: Search project" })
