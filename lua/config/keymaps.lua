@@ -3,9 +3,9 @@
 -- Add any additional keymaps here
 
 -- Toggle Tab next and prev and new tab
-vim.keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New Tab" })
-vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next Tab" })
-vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous Tab" })
+-- vim.keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New Tab" })
+-- vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next Tab" })
+-- vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous Tab" })
 -- vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous Tab" })
 
 -- Toggle Buffer next and prev

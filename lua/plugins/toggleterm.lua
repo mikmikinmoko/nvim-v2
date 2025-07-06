@@ -1,34 +1,58 @@
 return {
   {
-    -- amongst your other plugins
-    { "akinsho/toggleterm.nvim", version = "*", config = true },
-    -- or
-    {
-      "akinsho/toggleterm.nvim",
-      version = "*",
-      opts = {--[[ things you want to change go here]]
-        -- open_mapping = [[<C-\>]],
-        direction = "float",
-        float_opts = {
-          border = "curved",
-        },
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      direction = "float",
+      float_opts = {
+        border = "curved",
       },
-      keys = {
-        {
-          "<leader>tf",
-          function()
-            require("toggleterm").toggle(nil, nil, nil, "float")
-          end,
-          desc = "Toggle Floating Terminal",
-        },
-        {
-          "<leader>tx",
-          function()
-            require("toggleterm").toggle()
-          end,
-          mode = { "n", "t" },
-          desc = "Close Floating Terminal",
-        },
+    },
+    keys = {
+      -- Default floating terminal
+      {
+        "<leader>tf",
+        function()
+          require("toggleterm").toggle(1, nil, nil, "float")
+        end,
+        desc = "Toggle Floating Terminal 1",
+      },
+      -- Second floating terminal
+      {
+        "<leader>tg",
+        function()
+          require("toggleterm").toggle(2, nil, nil, "float")
+        end,
+        desc = "Toggle Floating Terminal 2",
+      },
+      -- Floating terminal with command (e.g., npm run dev)
+      -- {
+      --   "<leader>tn",
+      --   function()
+      --     local Terminal = require("toggleterm.terminal").Terminal
+      --     local npm = Terminal:new({
+      --       cmd = "npm run dev",
+      --       hidden = true,
+      --       direction = "float",
+      --       float_opts = {
+      --         border = "curved",
+      --       },
+      --       on_open = function(term)
+      --         vim.cmd("startinsert!")
+      --       end,
+      --     })
+      --     npm:toggle()
+      --   end,
+      --   desc = "Start Dev Server (npm run dev)",
+      -- },
+      -- Close current floating terminal (can be reused)
+      {
+        "<leader>tx",
+        function()
+          require("toggleterm").toggle()
+        end,
+        mode = { "n", "t" },
+        desc = "Close Terminal",
       },
     },
   },
