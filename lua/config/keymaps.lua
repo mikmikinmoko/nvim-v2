@@ -15,6 +15,9 @@
 -- vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { silent = true })
 -- vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true })
 
+-- Neo-Tree
+-- vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem toggle left<cr>", { desc = "Toggle Neo-tree (cwd)" })
+
 -- Move cursor while in insert mode
 vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
 vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move Down" })

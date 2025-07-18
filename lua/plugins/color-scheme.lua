@@ -23,7 +23,7 @@ return {
 --     "catppuccin",
 --     opts = {
 --       transparent_background = true,
---       flavour = "mocha", -- Choose from: latte, frappe, macchiato, mocha
+--       flavour = "frappe", -- Choose from: latte, frappe, macchiato, mocha
 --       integrations = {
 --         cmp = true,
 --         gitsigns = true,

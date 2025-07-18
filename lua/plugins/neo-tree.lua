@@ -42,9 +42,10 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    lazy = true,
+    priority = 1001,
     opts = {
       sources = { "filesystem", "buffers", "git_status" },
-      -- Make all sources use the same floating config
       source_selector = {
         winbar = false,
         statusline = false,
@@ -87,19 +88,19 @@ return {
             width = "60%",
           },
           show_title = false,
-          border = "rounded", -- ✅ adds rounded corners
-          position = "50%", -- centers the window
+          border = "rounded",
+          position = "50%",
         },
       },
     },
     keys = {
       {
-        "<leader>e",
+        "<leader>F",
         function()
           require("neo-tree.command").execute({
             toggle = true,
             reveal = true,
-            source = "filesystem", -- can be buffers or git_status too
+            source = "filesystem",
           })
         end,
         desc = "Toggle Neo-tree (Floating & Reveal Current File)",
@@ -126,13 +127,41 @@ return {
       },
     },
   },
-  -- Disable snack's file tree
+
+  -- 🍭 Snacks Notification UI Enhancement
   {
     "folke/snacks.nvim",
-    opts = {
-      explorer = {
-        enabled = false,
-      },
-    },
+    opts = function(_, opts)
+      opts.explorer.enabled = true -- keep snacks explorer if you want
+      opts.notify = {
+        backend = "nui",
+        level = vim.log.levels.INFO,
+        render = "minimal",
+        stages = "fade_in_slide_out",
+        timeout = 4000,
+        max_width = 80,
+        icons = {
+          INFO = "",
+          WARN = "",
+          ERROR = "",
+          DEBUG = "",
+          TRACE = "✎",
+        },
+      }
+      opts.notify_view = {
+        backend = "nui",
+        view = "float",
+        opts = {
+          border = "rounded",
+          position = "top_right",
+          relative = "editor",
+          winblend = 10,
+        },
+      }
+      opts.messages = {
+        enabled = true,
+        view = "mini",
+      }
+    end,
   },
 }
