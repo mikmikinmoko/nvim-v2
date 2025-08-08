@@ -1,45 +1,25 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false, -- make sure it's loaded during startup
-    priority = 1000, -- ensure it loads before other plugins
-    opts = {
-      style = "storm", -- can be "storm", "night", "moon", "day"
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-    config = function(_, opts)
-      require("tokyonight").setup(opts)
-      vim.cmd([[colorscheme tokyonight]])
+    "projekt0n/github-nvim-theme",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("github-theme").setup({
+        options = {
+          transparent = true,
+          terminal_colors = false,
+          styles = {
+            comments = "italic",
+            keywords = "bold",
+            types = "italic,bold",
+          },
+        },
+        palettes = {
+          github_dark_high_contrast = {},
+        },
+      })
+
+      vim.cmd("colorscheme github_dark")
     end,
   },
 }
--- Catppuccin Theme
--- return {
---   {
---     "catppuccin",
---     opts = {
---       transparent_background = true,
---       flavour = "frappe", -- Choose from: latte, frappe, macchiato, mocha
---       integrations = {
---         cmp = true,
---         gitsigns = true,
---         nvimtree = true,
---         telescope = { enabled = true },
---         treesitter = true,
---         which_key = true,
---         notify = true,
---         mini = true,
---       },
---     },
---   },
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "catppuccin",
---     },
---   },
--- }
