@@ -60,7 +60,7 @@ vim.keymap.set("n", "/", function()
   require("telescope.builtin").current_buffer_fuzzy_find({
     previewer = false,
     layout_config = {
-      prompt_position = "top",
+      prompt_position = "bottom",
     },
     sorting_strategy = "ascending",
   })
@@ -70,7 +70,7 @@ end, { desc = "Telescope: Search in current buffer" })
 vim.keymap.set("n", "<leader>/", function()
   require("telescope.builtin").live_grep({
     layout_config = {
-      prompt_position = "top",
+      prompt_position = "bottom",
     },
     sorting_strategy = "ascending",
   })

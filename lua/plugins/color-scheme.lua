@@ -7,7 +7,6 @@ return {
       require("github-theme").setup({
         options = {
           transparent = true,
-          terminal_colors = false,
           styles = {
             comments = "italic",
             keywords = "bold",
