@@ -52,9 +52,9 @@ return {
         lualine_a = {
           {
             "mode",
-            fmt = function(str)
-              return str:sub(1, 1) -- Show only first letter of mode
-            end,
+            -- fmt = function(str)
+            --   return str:sub(1, 1) -- Show only first letter of mode
+            -- end,
             color = function()
               local mode_color = {
                 n = "#ffffff", -- NORMAL - white
