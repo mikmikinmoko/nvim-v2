@@ -5,7 +5,6 @@ local js_based_languages = {
   "javascriptreact",
   "vue",
 }
-
 return {
   {
     "mfussenegger/nvim-dap",

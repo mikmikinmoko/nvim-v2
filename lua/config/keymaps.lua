@@ -19,7 +19,7 @@
 -- vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem toggle left<cr>", { desc = "Toggle Neo-tree (cwd)" })
 --
 local opts = { noremap = true, silent = true }
-vim.opt.winbar = "%=%m %f"
+-- vim.opt.winbar = "%=%m %f"
 
 vim.keymap.set("i", "i", "i", { noremap = true })
 vim.keymap.set("i", "<Esc>", "<Esc>", { noremap = true })
@@ -50,10 +50,10 @@ vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move Right" })
 -- vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Terminal horizontal" })
 
 -- Color scheme
-vim.keymap.set("n", "<leader>al", ":colorscheme github_light<CR>")
-vim.keymap.set("n", "<leader>an", ":colorscheme github_dark<CR>")
-vim.keymap.set("n", "<leader>ab", "<cmd>lua customizeHighlights()<CR>")
-vim.keymap.set("n", "<leader>av", ":colorscheme catppuccin-macchiato<CR>")
+-- vim.keymap.set("n", "<leader>al", ":colorscheme github_light<CR>")
+-- vim.keymap.set("n", "<leader>an", ":colorscheme github_dark<CR>")
+-- vim.keymap.set("n", "<leader>ab", "<cmd>lua customizeHighlights()<CR>")
+-- vim.keymap.set("n", "<leader>av", ":colorscheme catppuccin-macchiato<CR>")
 
 -- search current buffer
 vim.keymap.set("n", "/", function()
