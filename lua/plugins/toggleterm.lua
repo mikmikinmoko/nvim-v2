@@ -1,14 +1,15 @@
 return {
   "akinsho/toggleterm.nvim",
+  version = "*",
   config = function()
     require("toggleterm").setup({
       open_mapping = [[<c-\>]],
       shade_terminals = false,
-      shell = "zsh --login",
+      -- Ensure interactive login shell so .zshrc is loaded
+      shell = vim.fn.executable("zsh") == 1 and "zsh --login -i" or vim.o.shell,
       direction = "float",
       float_opts = {
         border = "curved",
-        -- Set to 80% of window size
         width = function()
           return math.floor(vim.o.columns * 0.8)
         end,

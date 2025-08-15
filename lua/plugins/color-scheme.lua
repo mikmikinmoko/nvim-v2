@@ -62,10 +62,8 @@ return {
           github_dark_high_contrast = {},
         },
       })
-
       -- Apply colorscheme
       vim.cmd("colorscheme github_dark")
-
       -- Make Telescope / floating windows transparent
       local highlights = {
         "NormalFloat",
@@ -77,7 +75,6 @@ return {
       for _, group in ipairs(highlights) do
         vim.api.nvim_set_hl(0, group, { bg = "none" })
       end
-
       -- Set all Telescope borders to white - use defer to ensure it applies after everything loads
       vim.defer_fn(function()
         vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#FFFFFF", bg = "none" })
@@ -85,8 +82,38 @@ return {
         vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = "#FFFFFF", bg = "none" })
         vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = "#FFFFFF", bg = "none" })
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FFFFFF", bg = "none" })
-      end, 100)
 
+        -- Active buffer highlighting
+        vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentIndex", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentMod", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentSign", { fg = "#FFFFFF", bg = "none", italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentTarget", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+
+        -- For built-in tabline (if not using barbar/bufferline)
+        vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+
+        -- For nvim-bufferline.lua plugin (if using)
+        vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferLineNumbersSelected", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferLineCloseButtonSelected", { fg = "#FFFFFF", bg = "none", italic = true })
+
+        -- For barbar.nvim plugin (if using)
+        vim.api.nvim_set_hl(0, "BufferCurrent", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentMod", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+
+        -- Active buffer with diagnostics (barbar.nvim)
+        vim.api.nvim_set_hl(0, "BufferCurrentERROR", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentWARN", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentINFO", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferCurrentHINT", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+
+        -- Active buffer with diagnostics (nvim-bufferline.lua)
+        vim.api.nvim_set_hl(0, "BufferLineErrorSelected", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferLineWarningSelected", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferLineInfoSelected", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "BufferLineHintSelected", { fg = "#FFFFFF", bg = "none", bold = true, italic = true })
+      end, 100)
       -- Configure Telescope to use borders
       local telescope_ok, telescope = pcall(require, "telescope")
       if telescope_ok then
