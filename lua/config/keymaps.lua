@@ -29,6 +29,8 @@ vim.g.lazyvim_no_defaults = true
 -- SELECT ALL
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
+vim.keymap.set("v", "<leader>yc", "ygvgc", { desc = "Yank and comment selection" })
+
 -- Clear any existing mapping
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
