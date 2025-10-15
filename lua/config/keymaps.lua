@@ -58,22 +58,22 @@ vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move Right" })
 -- vim.keymap.set("n", "<leader>av", ":colorscheme catppuccin-macchiato<CR>")
 
 -- search current buffer
-vim.keymap.set("n", "/", function()
-  require("telescope.builtin").current_buffer_fuzzy_find({
-    previewer = false,
-    layout_config = {
-      prompt_position = "bottom",
-    },
-    sorting_strategy = "ascending",
-  })
-end, { desc = "Telescope: Search in current buffer" })
+-- vim.keymap.set("n", "/", function()
+--   require("telescope.builtin").current_buffer_fuzzy_find({
+--     previewer = false,
+--     layout_config = {
+--       prompt_position = "bottom",
+--     },
+--     sorting_strategy = "ascending",
+--   })
+-- end, { desc = "Telescope: Search in current buffer" })
 
 -- search accross the whole project
-vim.keymap.set("n", "<leader>/", function()
-  require("telescope.builtin").live_grep({
-    layout_config = {
-      prompt_position = "bottom",
-    },
-    sorting_strategy = "ascending",
-  })
-end, { desc = "Telescope: Search project" })
+-- vim.keymap.set("n", "<leader>/", function()
+--   require("telescope.builtin").live_grep({
+--     layout_config = {
+--       prompt_position = "bottom",
+--     },
+--     sorting_strategy = "ascending",
+--   })
+-- end, { desc = "Telescope: Search project" })
