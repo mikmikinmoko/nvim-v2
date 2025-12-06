@@ -1,7 +1,12 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+local chainsaw = require("chainsaw")
+vim.keymap.set("n", "<leader>lv", chainsaw.variableLog, { desc = "Chainsaw: variableLog" })
+vim.keymap.set("n", "<leader>lo", chainsaw.objectLog, { desc = "Chainsaw: objectLog" })
+vim.keymap.set("n", "<leader>lt", chainsaw.typeLog, { desc = "Chainsaw: typeLog" })
+vim.keymap.set("n", "<leader>lm", chainsaw.messageLog, { desc = "Chainsaw: messageLog" })
+vim.keymap.set("n", "<leader>lr", chainsaw.removeLogs, { desc = "Chainsaw: removeLogs" })
 -- Toggle Tab next and prev and new tab
 -- vim.keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New Tab" })
 -- vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next Tab" })
